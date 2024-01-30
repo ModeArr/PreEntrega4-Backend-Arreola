@@ -1,0 +1,36 @@
+const { Router } = require("express")
+const path = require("path");
+const pathDB = path.join(`${__dirname}/../products.json`)
+const ProductManager = require("../ProductManager");
+const products = new ProductManager(pathDB)
+
+const router = Router()
+
+router.get('/', (req, res) => {
+
+    products.getProducts().then(result => {
+        res.render("index", {
+            title: "PreEntrega4-Backend",
+            products: JSON.stringify(result) 
+        })
+    }).catch(err => {
+        console.log(err);
+        res.status(400).json(err.message);
+    });
+})
+
+router.get('/realtimeproducts', (req, res) => {
+
+    products.getProducts().then(result => {
+        res.render("realtimeproducts", {
+            title: "PreEntrega4-Backend - Productos en tiempo real",
+            products: JSON.stringify(result) 
+        })
+    }).catch(err => {
+        console.log(err);
+        res.status(400).json(err.message);
+    });
+})
+
+
+module.exports = router
