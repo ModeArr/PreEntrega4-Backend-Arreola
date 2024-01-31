@@ -1,6 +1,7 @@
 const { Router } = require("express")
 const path = require("path");
 const pathDB = path.join(`${__dirname}/../products.json`)
+const styles = path.join(`${__dirname}/../public/styles/styles.css`)
 const ProductManager = require("../ProductManager");
 const products = new ProductManager(pathDB)
 
@@ -11,7 +12,8 @@ router.get('/', (req, res) => {
     products.getProducts().then(result => {
         res.render("index", {
             title: "PreEntrega4-Backend",
-            products: JSON.stringify(result) 
+            products: result,
+            style: "styles.css"
         })
     }).catch(err => {
         console.log(err);
