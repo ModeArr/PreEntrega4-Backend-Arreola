@@ -42,7 +42,6 @@ router.post("/", (req, res) => {
         newProduct.status
         )
         .then(result => {
-            console.log(result)
             io.emit('product created', result);
             return res.status(200).json("Se subio el producto correctamente");
         }).catch(err => {

@@ -34,6 +34,28 @@
 ```
 ## Cosas a realizadas
 
+### Agrego Handlebars
+#### Se agrego Handlebars meidante el handlebars.engine() con la libreria express-handlebars, tambien se agregaron las viwews y el layout Index y realtimeproducts. Se hizo una route para podre mandar hacer render de las dos vistas y asi mismo pedir ProductManager para poder obtener los productos y que estos endpoints los retornen
+
+### Ver todos los productos con Handlebars
+#### Para esto sobre las dos views se hizo un template para mostrar una lista con los articulos recibidos para mostrarlos se hizo {{#each products}} para poder hacer un tipo map de todos los productos que vienen en array de objetos dado.
+
+### Agrego Socket.io
+#### Se agrego la libreria de Socket Io asi como el link en la view dde realtimeproducts.handlebars, para incializar el server de expres se hizo la declracion de io = require('socket.io')(server) esto sobre el server en donde tenemos declarado nuestro listen del server de express.
+
+### Agregar emmit en un POST y DELETE express
+#### Para agregar un emmit en un post se uso app.set("io",  io) para poder obtener io, luego sobre el mismo endpoint se obtuvo io mediante una peticion "io = req.app.get('io');" esto permite poder usarlo dentro del mismo POST solo haciendo io.emit('product created', result), result siendo lo retornado en este caso el producto que fue subido. En el caso del DELETE se hizo el emmit solo se le retorno el id que ya habia sido dado io.emit('product deleted', id)
+
+### Agregar .on para agregar y borrar en el Front
+#### para poder recibir la respuesta para borrar en el front se realizo primero la obtencion de io() declarandolo sobre socket para tener socket.on y poder cachar la respuesta, para hacer esto se tiene una lista de articulos articleList que es donde estan todo los articulos mostrados cada uno con su respectivo id = id del producto, para poder agregar un producto primero se hacer un string template articleAdd donde muestre los datos del producto y se usa getElementById("articleList") para obtener donde esta la lista de articulos e .insertAdjacentHTML('beforeend', articleAdd) para agregar al final nuestro template convertido en HTML. Para delete se uso getElementById para obtener el elemento pero mediante el id del producto que se retorna luego solo se uso .remove() para removerlo. 
+
+### EXTRA: Se agrego Tailwind
+#### Tailwind es una de las mejor es librerias para hace un front simple en css sin necesidad de hacer muchos  estilos y obteniendo resultados muy buenos con poco desarollo y en lo personal ya me acostumbre mucho a usarlo no importa donde.
+
+
+---
+## Cosas ya hechas 
+
 ## Products
 ### getProducts()
 #### Esta funcion permite obtener todos los productos por medio de una promise del archivo products.json mediante la libreria fs/promises con la funcion fs.readFile.
