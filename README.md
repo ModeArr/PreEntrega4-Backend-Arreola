@@ -12,7 +12,7 @@
 
 #### Entrega Proyecto Final Numero: 3
 
-#### El proyecto pide qe se haga una api que contega los endpoint /api/products y /api/cart con EXPRESSJS, esto para simular el manejo de productos y carrito de compras mediante una. Al proyecto se agregaron paradigamas de validacion asi como un simple manejo de errores, se crearon una clase ProductManager y una CartManager para de aqui manejar funciones y validaciones. Luego se manejo mediante routes los endpoint para agregar, obtener, borrar y modificar productos, asi como otra routes para crear, obtener y agregar productos al carrito. 
+#### El proyecto pide implmentar handlebars para front asi como Socket.io para poder mostrar una lista de productos en tiempo real mediante websockets. Al proyecto se le agregaron vistas las cuiales fueroni msotradas con routes de endpoints para rederizarlas, se implemento socket.io sobre las mismos endpoints que se tenian para podre emitir de ahi el agregdo y el borrado de un producto permitiendo tener comunicacion en tiempo real de cuandos se borra o agrega un producto en /realtimeproducts 
 
 ---
 
