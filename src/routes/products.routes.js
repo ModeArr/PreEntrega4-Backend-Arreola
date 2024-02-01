@@ -4,7 +4,6 @@ const pathDB = path.join(`${__dirname}/../products.json`)
 const ProductManager = require("../ProductManager");
 const products = new ProductManager(pathDB)
 
-
 const router = Router()
 
 router.get("/", (req, res) => {
@@ -31,7 +30,7 @@ router.get("/:pid", (req, res) => {
 
 router.post("/", (req, res) => {
     const newProduct = req.body
-    console.log(newProduct)
+    const io = req.app.get('io');
 
     products.addProduct(newProduct.title, 
         newProduct.description, 
@@ -43,7 +42,9 @@ router.post("/", (req, res) => {
         newProduct.status
         )
         .then(result => {
-            return res.status(200).json(result);
+            console.log(result)
+            io.emit('product created', result);
+            return res.status(200).json("Se subio el producto correctamente");
         }).catch(err => {
             res.status(400).json(err.message)
         });
@@ -63,10 +64,12 @@ router.put("/:pid", (req, res) => {
 
 router.delete("/:pid", (req, res) => {
     const id = Number(req.params.pid)
+    const io = req.app.get('io')
 
     products.deleteProduct(id)
         .then(result => {
-            return res.status(200).json(result);
+            io.emit('product deleted', id)
+            return res.status(200).json(result)
         }).catch(err => {
             res.status(400).json(err.message)
         });

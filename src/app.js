@@ -9,8 +9,10 @@ PORT = 8080
 API_PREFIX = "api"
 
 const app = express()
-
-
+const server = app.listen(PORT, () => {
+    console.log("SERVER FUNCIONANDO")
+})
+const io = require('socket.io')(server);
 
 app.use(express.urlencoded({ extends: true }));
 app.use(express.json()); 
@@ -19,11 +21,10 @@ app.use(express.static(__dirname + '/public'))
 app.engine("handlebars", handlebars.engine())
 app.set("views", path.join(`${__dirname}/views`))
 app.set("view engine", "handlebars")
+app.set("io",  io)
 
 app.use(`/${API_PREFIX}/products`, productsRoutes)
 app.use(`/${API_PREFIX}/carts`, cartsRoutes)
 app.use('/', viewRoutes)
 
-app.listen(PORT, () => {
-    console.log("SERVER FUNCIONANDO")
-})
+

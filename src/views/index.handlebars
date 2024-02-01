@@ -1,9 +1,9 @@
     <h1 class="text-5xl text-center pt-8">Productos que tenemos</h1>
 
     <section class="py-10 bg-gray-100">
-        <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div id="articleList" class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {{#each products}}
-            <article class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
+            <article id="{{this.id}}" class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 ">
                     <div class="relative flex items-end overflow-hidden rounded-xl">
                     <img class="h-48 w-full object-contain" src={{this.thumbnail}}/>
                     <div class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
@@ -27,4 +27,3 @@
                 {{/each}}
         </div>    
     </section>
-    {{!-- <code>{{products}}</code> --}}

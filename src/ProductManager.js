@@ -74,7 +74,7 @@ class ProductManager {
     
            allProducts.push(producto)
            await fs.writeFile(this.pathDB, JSON.stringify(allProducts));
-           return "Se subio el producto correctamente"
+           return producto
         } catch (error) {
             throw Error(error)
         }

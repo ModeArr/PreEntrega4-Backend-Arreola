@@ -26,7 +26,7 @@ router.get('/realtimeproducts', (req, res) => {
     products.getProducts().then(result => {
         res.render("realtimeproducts", {
             title: "PreEntrega4-Backend - Productos en tiempo real",
-            products: JSON.stringify(result) 
+            products: result
         })
     }).catch(err => {
         console.log(err);
