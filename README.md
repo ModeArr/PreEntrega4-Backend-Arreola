@@ -10,7 +10,7 @@
 
 #### Tutor: Tomás Alessandro Yovino
 
-#### Entrega Proyecto Final Numero: 3
+#### Entrega Proyecto Final Numero: 4
 
 #### El proyecto pide implmentar handlebars para front asi como Socket.io para poder mostrar una lista de productos en tiempo real mediante websockets. Al proyecto se le agregaron vistas las cuiales fueroni msotradas con routes de endpoints para rederizarlas, se implemento socket.io sobre las mismos endpoints que se tenian para podre emitir de ahi el agregdo y el borrado de un producto permitiendo tener comunicacion en tiempo real de cuandos se borra o agrega un producto en /realtimeproducts 
 
@@ -29,7 +29,6 @@
     "code": "578921",
     "status": true,
     "category": "Verdura",
-    "id": 10
   }
 ```
 ## Cosas a realizadas
